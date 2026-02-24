@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realtime YouTube Share Viewer</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Landing Page -->
+    <div id="landing-page">
+      <h1>YouTube Share Viewer</h1>
+      <input type="text" id="username-input" placeholder="Your Name (ユーザー名)" />
+
+      <div id="host-controls">
+        <h3>Create New Room</h3>
+        <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+          <input type="text" id="youtube-url-input" placeholder="YouTube Video URL" style="flex-grow: 1;" />
+          <button id="paste-url-btn" style="padding: 0 10px;">Paste</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <label>
+            <input type="checkbox" id="public-room-checkbox"> Make Public (Show in list)
+          </label>
+        </div>
+        <button id="create-room-btn">Create Room</button>
+      </div>
+
+      <div id="public-rooms-container" style="margin-top: 30px; border-top: 1px solid #555; padding-top: 20px;">
+        <h3>Public Rooms</h3>
+        <div id="public-rooms-list" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Public rooms will be injected here -->
+          <p id="no-public-rooms">No public rooms available.</p>
+        </div>
+      </div>
+
+      <div id="join-controls" style="margin-top: 20px;">
+        <h3>Join Existing Room</h3>
+        <input type="text" id="room-code-input" placeholder="Room Code (招待コード)" />
+        <button id="join-room-btn">Join Room</button>
+      </div>
+    </div>
+
+    <!-- Room View (Hidden by default) -->
+    <div id="room-view" style="display: none;">
+      <div id="video-container">
+        <div id="player"></div> <!-- YouTube Iframe API will replace this -->
+      </div>
+
+      <div id="chat-container">
+        <div
+          style="padding: 10px; background: #333; display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; flex-direction: column;">
+            <span id="room-info" style="font-weight: bold;">Room: <span id="current-room-id"></span></span>
+            <button id="copy-invite-btn"
+              style="padding: 2px 5px; font-size: 0.7rem; margin: 2px 0 0 0; background: #555; color: white; border: none; cursor: pointer;">Copy
+              Invite Link</button>
+          </div>
+          <button id="leave-room-btn"
+            style="padding: 5px 10px; font-size: 0.8rem; margin: 0; background: #cc0000; color: white; border: none; cursor: pointer;">Leave</button>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Type a message..." />
+          <button id="send-chat-btn">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>

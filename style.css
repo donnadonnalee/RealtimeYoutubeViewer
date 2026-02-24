@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #ff0000;
+    /* YouTube Red */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --secondary-bg: #1e1e1e;
+    --accent-color: #3ea6ff;
+    --border-color: #333;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Setup Google Font later */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Landing Page */
+#landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+input,
+button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Room View */
+#room-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #room-view {
+        flex-direction: row;
+    }
+}
+
+/* Video Container */
+#video-container {
+    flex: 3;
+    /* Give more space to video */
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#player {
+    width: 100%;
+    height: 100%;
+    /* Iframe will fill this */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Chat Container */
+#chat-container {
+    flex: 1;
+    background-color: var(--secondary-bg);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-color);
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    #chat-container {
+        max-width: 400px;
+        /* Limit chat width on desktop */
+    }
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+}
+
+.system-message {
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+    background: none;
+}
+
+#chat-input-area {
+    padding: 10px;
+    display: flex;
+    border-top: 1px solid var(--border-color);
+}
+
+#chat-input {
+    flex: 1;
+    margin: 0 10px 0 0;
+    /* Override default margin */
+}
+
+#leave-btn {
+    background-color: #444;
+    margin-top: auto;
+    /* Push to bottom of sidebar if needed, but here it's likely header material */
+}
